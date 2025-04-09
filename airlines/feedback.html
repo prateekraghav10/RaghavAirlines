@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Airline Reservation System - Feedback</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+        body {
+    background-image: url('pexels-anugrahajaylohiya-723240.jpg'); /* Background image of airline */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: #003366; /* Dark blue text */
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+
+        header {
+            background-color: #003366; /* Dark blue header */
+            font-family: 'Montserrat', sans-serif; /* Professional font */
+            color: #ffcc00; /* Gold color */
+            text-shadow: 2px 2px 4px #000; /* Text shadow effect */
+            margin: 0;
+            text-align: center; /* Center align the text */
+            font-weight: bold; /* Make the text bold */
+            padding: 20px 0; /* Increase header size */
+            letter-spacing: 2px; /* Add spacing between letters */
+            border-bottom: 5px solid #afb582; /* Add a gold border at the bottom */
+        }
+
+        nav {
+            background-color: #4c99c8; /* Dark blue header */
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }
+        nav .nav-link {
+            color: white;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px #aea7a7;
+            margin: 0 10px;
+        }
+        nav .nav-link:hover {
+            background-color: #9cbfe2; /* Lighter blue on hover */
+            color: white;
+        }
+        nav .nav-link.btn {
+            border: 2px solid white;
+            border-radius: 5px;
+            box-shadow: 2px 2px 5px #000;
+            transition: all 0.3s ease;
+        }
+        nav .nav-link.btn:hover {
+            box-shadow: 4px 4px 10px #000;
+            transform: translateY(-2px);
+        }
+        footer {
+            background-color: #003366; /* Dark blue footer */
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            width: 100%;
+            margin-top: auto;
+        }
+        .container {
+            margin-top: 50px;
+            background-color: rgba(255, 255, 255, 0.8); /* White background with transparency */
+            padding: 20px;
+            border-radius: 10px;
+            flex: 1;
+        }
+        .form-group label {
+            color: #003366; /* Dark blue labels */
+        }
+        .btn-primary {
+            background-color: #003366; /* Dark blue button */
+            border-color: #003366;
+        }
+        .btn-primary:hover {
+            background-color: #002244; /* Darker blue on hover */
+            border-color: #002244;
+        }
+        .star-rating {
+            direction: rtl;
+            display: inline-block;
+            padding: 5px; /* Reduced padding to bring stars closer vertically */
+        }
+        .star-rating input[type="radio"] {
+            display: none;
+        }
+        .star-rating label {
+            color: #bbb;
+            font-size: 18px;
+            padding: 0;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+        }
+        .star-rating input[type="radio"]:checked ~ label {
+            color: #f2b600;
+        }
+        .star-rating label:hover,
+        .star-rating label:hover ~ label {
+            color: #f2b600;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>RAGHAV AIRLINES</h1>
+    </header>
+    
+    <nav class="navbar navbar-expand-sm">
+        <div class="container-fluid">
+            <ul class="navbar-nav" style="list-style-type: none; padding-left: 0;">
+                <li class="nav-item">
+                    <a class="nav-link btn" href="register.html">Register</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn" href="login.html">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn" href="checkairlines.html">Check Airlines</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn" href="bookticket.html">Book Ticket</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn" href="boarding.html">Boarding the Flight</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn" href="feedback.html">Feedback</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h2>Feedback</h2>
+        <form id="feedbackForm">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="email" required>
+            </div>
+            <div class="form-group">
+                <label for="staff">Staff Rating</label>
+                <div class="star-rating">
+                    <input type="radio" id="staff-5-stars" name="staff" value="5" required />
+                    <label for="staff-5-stars" class="star">&#9733;</label>
+                    <input type="radio" id="staff-4-stars" name="staff" value="4" />
+                    <label for="staff-4-stars" class="star">&#9733;</label>
+                    <input type="radio" id="staff-3-stars" name="staff" value="3" />
+                    <label for="staff-3-stars" class="star">&#9733;</label>
+                    <input type="radio" id="staff-2-stars" name="staff" value="2" />
+                    <label for="staff-2-stars" class="star">&#9733;</label>
+                    <input type="radio" id="staff-1-star" name="staff" value="1" />
+                    <label for="staff-1-star" class="star">&#9733;</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="hygiene">Cleanliness Rating</label>
+                <div class="star-rating">
+                    <input type="radio" id="hygiene-5-stars" name="hygiene" value="5" required />
+                    <label for="hygiene-5-stars" class="star">&#9733;</label>
+                    <input type="radio" id="hygiene-4-stars" name="hygiene" value="4" />
+                    <label for="hygiene-4-stars" class="star">&#9733;</label>
+                    <input type="radio" id="hygiene-3-stars" name="hygiene" value="3" />
+                    <label for="hygiene-3-stars" class="star">&#9733;</label>
+                    <input type="radio" id="hygiene-2-stars" name="hygiene" value="2" />
+                    <label for="hygiene-2-stars" class="star">&#9733;</label>
+                    <input type="radio" id="hygiene-1-star" name="hygiene" value="1" />
+                    <label for="hygiene-1-star" class="star">&#9733;</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="experience">Overall Experience Rating</label>
+                <div class="star-rating">
+                    <input type="radio" id="experience-5-stars" name="experience" value="5" required />
+                    <label for="experience-5-stars" class="star">&#9733;</label>
+                    <input type="radio" id="experience-4-stars" name="experience" value="4" />
+                    <label for="experience-4-stars" class="star">&#9733;</label>
+                    <input type="radio" id="experience-3-stars" name="experience" value="3" />
+                    <label for="experience-3-stars" class="star">&#9733;</label>
+                    <input type="radio" id="experience-2-stars" name="experience" value="2" />
+                    <label for="experience-2-stars" class="star">&#9733;</label>
+                    <input type="radio" id="experience-1-star" name="experience" value="1" />
+                    <label for="experience-1-star" class="star">&#9733;</label>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="feedback">Additional Feedback</label>
+                <textarea class="form-control" id="feedback" rows="4" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit Feedback</button>
+        </form>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Raghav Airlines. All rights reserved.</p>
+            <p>Toll-free No: 1212333445</p>
+            <p>Contact us: <a href="mailto:support@raghavairlines.com">support@raghavairlines.com</a></p>
+            <p>Follow us on:
+                <a href="https://www.facebook.com/raghavairlines" target="_blank">Facebook</a> |
+                <a href="https://www.twitter.com/raghavairlines" target="_blank">Twitter</a> |
+                <a href="https://www.instagram.com/raghavairlines" target="_blank">Instagram</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('feedbackForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            // Add validation logic here if needed
+            alert('Feedback submitted successfully!');
+            window.location.href = 'thankyou.html'; // Redirect to thank you page
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Airline Reservation System - Book Ticket</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            background-image: url('pexels-anugrahajaylohiya-723240.jpg'); /* Background image of airline */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: #003366; 
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+        header {
+    background-color: #003366; /* Dark blue header */
+    font-family: 'Montserrat', sans-serif; /* Professional font */
+    color: #ffcc00; /* Gold color */
+    text-shadow: 2px 2px 4px #000; /* Text shadow effect */
+    margin: 0;
+    text-align: center; /* Center align the text */
+    font-weight: bold; /* Make the text bold */
+    padding: 20px 0; /* Increase header size */
+    letter-spacing: 2px; /* Add spacing between letters */
+    border-bottom: 5px solid #afb582; /* Add a gold border at the bottom */
+}
+
+
+        nav {
+            background-color: #4c99c8; /* Dark blue header */
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }
+        nav .nav-link {
+            color: white;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px #aea7a7;
+            margin: 0 10px;
+        }
+        nav .nav-link:hover {
+            background-color: #9cbfe2; /* Lighter blue on hover */
+            color: white;
+        }
+        nav .nav-link.btn {
+            border: 2px solid white;
+            border-radius: 5px;
+            box-shadow: 2px 2px 5px #000;
+            transition: all 0.3s ease;
+        }
+        nav .nav-link.btn:hover {
+            box-shadow: 4px 4px 10px #000;
+            transform: translateY(-2px);
+        }
+        footer {
+            background-color: #003366; /* Dark blue footer */
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            width: 100%;
+            margin-top: auto;
+        }
+        .container {
+            margin-top: 50px;
+            background-color: rgba(255, 255, 255, 0.8); /* White background with transparency */
+            padding: 20px;
+            border-radius: 10px;
+            flex: 1;
+        }
+        .form-group label {
+            color: #003366; /* Dark blue labels */
+        }
+        .btn-primary {
+            background-color: #003366; /* Dark blue button */
+            border-color: #003366;
+        }
+        .btn-primary:hover {
+            background-color: #002244; /* Darker blue on hover */
+            border-color: #002244;
+        }
+        .ticket-price {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ffcc00; /* Gold color */
+            text-shadow: 1px 1px 2px #000; /* Text shadow effect */
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>RAGHAV AIRLINES</h1>
+    </header>
+    
+    <nav class="navbar navbar-expand-sm">
+        <div class="container-fluid">
+            <ul class="navbar-nav" style="list-style-type: none; padding-left: 0;">
+                
+                <li class="nav-item">
+                    <a class="nav-link btn" href="register.html">Register</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn" href="login.html">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn" href="checkairlines.html">Check Airlines</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn" href="bookticket.html">Book Ticket</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn" href="boarding.html">Boarding the Flight</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn" href="feedback.html">Feedback</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h2>Book Ticket</h2>
+        <form id="bookTicketForm">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name" required>
+            </div>
+            <div class="form-group">
+                <label for="passport">Passport Number</label>
+                <input type="text" class="form-control" id="passport" required>
+            </div>
+            <div class="form-group">
+                <label for="flight">Flight Number</label>
+                <input type="text" class="form-control" id="flight" required>
+            </div>
+            <div class="form-group">
+                <label for="seatClass">Seat Class</label>
+                <select class="form-control" id="seatClass" required>
+                    <option value="economy">Economy</option>
+                    <option value="business">Business</option>
+                    <option value="premium">Premium</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="mealPreference">Meal Preference</label>
+                <select class="form-control" id="mealPreference" required>
+                    <option value="veg">Vegetarian</option>
+                    <option value="nonVeg">Non-Vegetarian</option>
+                    <option value="vegan">Vegan</option>
+                    <option value="glutenFree">Gluten-Free</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="specialRequests">Special Requests</label>
+                <textarea class="form-control" id="specialRequests" rows="3"></textarea>
+            </div>
+            <div class="ticket-price" id="ticketPrice">
+                Ticket Price: ₹0
+            </div>
+            <button type="submit" class="btn btn-primary">Book Ticket</button>
+        </form>
+    </div>
+    <footer>
+        <p>&copy; 2025 Prateek Raghav Airline Reservation System</p>
+    </footer>
+    <script>
+        const seatClassPrices = {
+            economy: 5000,
+            business: 10000,
+            premium: 15000
+        };
+
+        const mealPrices = {
+            veg: 500,
+            nonVeg: 700,
+            vegan: 600,
+            glutenFree: 800
+        };
+
+        const specialRequestPrice = 1000; // Additional charge for special requests
+        const discount = 0.1; // 10% discount
+
+        function calculatePrice() {
+            const selectedClass = document.getElementById('seatClass').value;
+            const selectedMeal = document.getElementById('mealPreference').value;
+            const hasSpecialRequest = document.getElementById('specialRequests').value.trim() !== '';
+
+            const basePrice = seatClassPrices[selectedClass];
+            const mealPrice = mealPrices[selectedMeal];
+            const specialRequestCharge = hasSpecialRequest ? specialRequestPrice : 0;
+
+            const totalPrice = basePrice + mealPrice + specialRequestCharge;
+            const finalPrice = totalPrice - (totalPrice * discount);
+
+            document.getElementById('ticketPrice').innerText = `Ticket Price: ₹${finalPrice}`;
+        }
+
+        document.getElementById('seatClass').addEventListener('change', calculatePrice);
+        document.getElementById('mealPreference').addEventListener('change', calculatePrice);
+        document.getElementById('specialRequests').addEventListener('input', calculatePrice);
+
+        document.getElementById('bookTicketForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            // Add validation logic here
+            alert('Ticket booked successfully!');
+            window.location.href = 'boarding.html'; // Redirect to boarding page
+        });
+    </script>
+</body>
+</html>

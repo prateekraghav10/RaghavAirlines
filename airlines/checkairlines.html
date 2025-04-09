@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Airline Reservation System - Check Airlines Availability</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        body {
+    background-image: url('pexels-anugrahajaylohiya-723240.jpg'); /* Background image of airline */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: #003366; /* Dark blue text */
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+        @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+        header {
+            background-color: #003366; /* Dark blue header */
+            font-family: 'Montserrat', sans-serif; /* Professional font */
+            color: #ffcc00; /* Gold color */
+            text-shadow: 2px 2px 4px #000; /* Text shadow effect */
+            margin: 0;
+            text-align: center; /* Center align the text */
+            font-weight: bold; /* Make the text bold */
+            padding: 20px 0; /* Increase header size */
+            letter-spacing: 2px; /* Add spacing between letters */
+            border-bottom: 5px solid #afb582; /* Add a gold border at the bottom */
+        }
+
+        nav {
+            background-color: #4c99c8; /* Dark blue header */
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }
+        nav .nav-link {
+            color: white;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px #aea7a7;
+            margin: 0 10px;
+        }
+        nav .nav-link:hover {
+            background-color: #9cbfe2; /* Lighter blue on hover */
+            color: white;
+        }
+        nav .nav-link.btn {
+            border: 2px solid white;
+            border-radius: 5px;
+            box-shadow: 2px 2px 5px #000;
+            transition: all 0.3s ease;
+        }
+        nav .nav-link.btn:hover {
+            box-shadow: 4px 4px 10px #000;
+            transform: translateY(-2px);
+        }
+        footer {
+            background-color: #003366; /* Dark blue footer */
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            width: 100%;
+            margin-top: auto;
+        }
+        .container {
+            margin-top: 50px;
+            background-color: rgba(255, 255, 255, 0.8); /* White background with transparency */
+            padding: 20px;
+            border-radius: 10px;
+            flex: 1;
+        }
+        .form-group label {
+            color: #003366; /* Dark blue labels */
+        }
+        .btn-primary {
+            background-color: #003366; /* Dark blue button */
+            border-color: #003366;
+        }
+        .btn-primary:hover {
+            background-color: #002244; /* Darker blue on hover */
+            border-color: #002244;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>RAGHAV AIRLINES</h1>
+    </header>
+    
+    <nav class="navbar navbar-expand-sm">
+        <div class="container-fluid">
+            <ul class="navbar-nav" style="list-style-type: none; padding-left: 0;">
+                
+                <li class="nav-item">
+                    <a class="nav-link btn" href="register.html">Register</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn" href="login.html">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn" href="checkairlines.html">Check Airlines</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn" href="bookticket.html">Book Ticket</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn" href="boarding.html">Boarding the Flight</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn" href="feedback.html">Feedback</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h2>Check Airlines Availability</h2>
+        <form id="checkAirlinesForm">
+            <div class="form-group">
+                <label for="from">From</label>
+                <select class="form-control" id="from" required>
+                    <option value="DEL">Indira Gandhi International Airport, Delhi (DEL)</option>
+                    <option value="BOM">Chhatrapati Shivaji Maharaj International Airport, Mumbai (BOM)</option>
+                    <option value="BLR">Kempegowda International Airport, Bangalore (BLR)</option>
+                    <option value="MAA">Chennai International Airport, Chennai (MAA)</option>
+                    <option value="HYD">Rajiv Gandhi International Airport, Hyderabad (HYD)</option>
+                    <option value="CCU">Netaji Subhas Chandra Bose International Airport, Kolkata (CCU)</option>
+                    <option value="GOI">Goa International Airport, Goa (GOI)</option>
+                    <option value="AMD">Sardar Vallabhbhai Patel International Airport, Ahmedabad (AMD)</option>
+                    <option value="COK">Cochin International Airport, Kochi (COK)</option>
+                    <option value="PNQ">Pune International Airport, Pune (PNQ)</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="to">To</label>
+                <select class="form-control" id="to" required>
+                    <option value="DEL">Indira Gandhi International Airport, Delhi (DEL)</option>
+                    <option value="BOM">Chhatrapati Shivaji Maharaj International Airport, Mumbai (BOM)</option>
+                    <option value="BLR">Kempegowda International Airport, Bangalore (BLR)</option>
+                    <option value="MAA">Chennai International Airport, Chennai (MAA)</option>
+                    <option value="HYD">Rajiv Gandhi International Airport, Hyderabad (HYD)</option>
+                    <option value="CCU">Netaji Subhas Chandra Bose International Airport, Kolkata (CCU)</option>
+                    <option value="GOI">Goa International Airport, Goa (GOI)</option>
+                    <option value="AMD">Sardar Vallabhbhai Patel International Airport, Ahmedabad (AMD)</option>
+                    <option value="COK">Cochin International Airport, Kochi (COK)</option>
+                    <option value="PNQ">Pune International Airport, Pune (PNQ)</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="date">Date</label>
+                <input type="date" class="form-control" id="date" required>
+            </div>
+            <div class="form-group">
+                <label for="flightMode">Flight Mode</label>
+                <select class="form-control" id="flightMode" required>
+                    <option value="economy">Economy</option>
+                    <option value="business">Business</option>
+                    <option value="premium">Premium</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="airline">Airline</label>
+                <select class="form-control" id="airline" required>
+                    <option value="airIndia">Air India</option>
+                    <option value="indigo">IndiGo</option>
+                    <option value="spiceJet">SpiceJet</option>
+                    <option value="vistara">Vistara</option>
+                    <option value="goAir">GoAir</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Check Availability</button>
+        </form>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Prateek Raghav Airline Reservation System</p>
+    </footer>
+
+    <script>
+        document.getElementById('checkAirlinesForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            alert('Airlines available!');
+            window.location.href = 'bookticket.html';
+        });
+    </script>
+</body>
+</html>
